@@ -1,0 +1,26 @@
+#lang racket
+(define (square_liste ls)
+  (cond
+    ((null? ls) '())
+    ((even? (car ls)) (cons(* (car ls) (car ls)) (square_liste (cdr ls))))
+    ((odd? (car ls)) (cons(* (car ls) (car ls) (car ls)) (square_liste (cdr ls))))
+    )
+  )
+
+(define (prefix_n ls n)
+  (if (or (null? ls) (zero? n))
+    '()
+    (cons  (car ls)
+            (prefix_n (cdr ls) (- n 1)) )
+  )
+)
+
+(define (inverse_list ls)
+  (if(null? ls)
+    '()
+    (reverse (cons (car (reverse ls)) (inverse_list (cdr ls))))
+    )
+  )
+;(square_liste '(1 2 3 4 5))
+;(prefix_n '(1 2 3 4 5 6) 3)
+(inverse_list '(1 2 3 4 5 6))
