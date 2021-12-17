@@ -58,6 +58,30 @@
   (countup (cons cpt ls) (+ cpt 1) (- n 1)))
 )
 
-(trace countup)
+;(trace countup)
 
-(countup '() 0 5)
+;(countup '() 0 5)
+
+; length_list without accumulator
+(define (length_list ls)
+        (if (null? ls)
+        0
+        (+ 1 (length_list (cdr ls)))))
+
+;(trace length_list)
+;(length_list '(1 2 3 4 5 6))
+
+; length_list with accumulator
+(define (length_list_acc length ls)
+        (if (null? ls)
+        length
+        (length_list_acc (+ 1 length) (cdr ls)))
+        )
+
+;(length_list_acc 0 '(1 2 3 4 5 5))
+(define (mdulo a b)
+        (if ( < (- a b ) 0)
+          a
+          (modulo (- a b) b )))
+
+;(modulo 17 5)
